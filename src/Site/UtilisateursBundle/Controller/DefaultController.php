@@ -9,4 +9,5 @@ class DefaultController extends Bundle
     {
         return 'FOSUserBundle';
     }
+
 }
