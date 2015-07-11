@@ -1,0 +1,12 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_registercustomer:
+    path:     /customer
+    defaults: { _controller: SiteUtilisateursBundle:Registration:register }
+    requirements:
+         methods:   POST
+fos_logincustomer:
+    path:     /customerlogin
+    defaults: { _controller: SiteUtilisateursBundle:Security:login }
+    requirements:
+         methods:   POST

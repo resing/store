@@ -1,0 +1,98 @@
+{# empty Twig template #}
+{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
+{% block body %}
+<div class="container">
+	<div class="check">	 
+			 <div class="col-md-3 cart-total">
+			 <a class="continue" href="#">Etape 3 : </a>
+			 <div class="price-details">
+				 <h3>Price Details</h3>
+				 <span>Total</span>
+				 <span class="total1">{{ somme }}</span>
+				 <span>Discount</span>
+                                 <span class="total1">---</span>
+                                 {% for product in products %}
+                                 <span> {{ product.productdescription.name }}</span>
+				 <span class="total1">{{ product.priceTn }}</span>
+                                 {% endfor %}
+				 <span>Delivery Charges</span>
+				 <span class="total1">150.00</span>
+				 <div class="clearfix"></div>				 
+			 </div>	
+			 <ul class="total_price">
+			   <li class="last_price"> <h4>TOTAL</h4></li>	
+			   <li class="last_price"><span>{% if somme == true %} {{somme + 150.00}} {% else %} --- {% endif %}</span></li>
+			   <div class="clearfix"> </div>
+			 </ul>
+			 <div class="clearfix"></div>
+                         <br/>
+                         <div class="total-item">
+                             <div>
+ <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="ahmed.ben-taher@gfi.fr">
+<input type="hidden" name="lc" value="FR">
+<input type="hidden" name="item_name" value="Achat en cours">
+<input type="hidden" name="no_note" value="20">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+			 </div>
+			</div>
+    <div class="col-md-9 cart-items">
+        <div class="single-bottom2">
+            <h6>Related Products</h6>
+            {% for product in products %}
+                <div class="product">
+                            <div class="product-desc">
+                                <div class="product-img">
+                                {% for  media in product.media %}
+                                        {% if media.thumbProduct %}
+                                                 <img src="{{ asset('bundles/sitefrontoffice/images/') }}{{media.path}}" class="img-responsive" alt=""/>
+                                         {% endif %}
+                                 {% endfor %}
+                                </div>
+                                <div class="prod1-desc">
+                                    <h5><a href="#" class="product_link">{{ product.productdescription.name}}</a></h5>
+                                    <p class="product_descr"> {{ product.productdescription.description}} </p>									
+                                    </div>
+                                   <div class="clearfix"></div>
+                            </div>
+                           <div class="product_price">
+                                <span class="price-access">{{ product.priceTn}} TND </span>								
+                            </div>
+                          <div class="clearfix"></div>
+                </div>
+            {% endfor %}
+        </div>
+            <br/>
+           <div class="single-bottom2">
+                 <h6>Adresse de livraion</h6>
+                <div>
+                    <span><label>Name : {{ order.deliveryName}}</label></span>
+                </div>
+                <div>
+                    <span><label>Adresse : {{ order.deliveryStreetAddress}}</label></span>
+                </div>
+                <div>
+                    <span><label>Postcode : {{ order.deliveryPostcode}}</label></span>
+                </div>
+                <div>
+                    <span><label>deliveryState : {{ order.deliveryState}}</label></span>
+                </div>
+                <div>
+                    <span><label>Country : {{ order.deliveryCountry}}</label></span>
+                </div>
+                <div>
+                    <span><label>Mobile : {{ order.deliveryMobile}}</label></span>
+                </div>
+           </div>
+    </div>
+<div class="clearfix"> </div>
+</div>
+    </div>
+{% endblock %}
+

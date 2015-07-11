@@ -1,0 +1,30 @@
+mediaspecials:
+    path:     /
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:index" }
+
+mediaspecials_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:show" }
+
+mediaspecials_new:
+    path:     /new
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:new" }
+
+mediaspecials_create:
+    path:     /create
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:create" }
+    requirements: { _method: post }
+
+mediaspecials_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:edit" }
+
+mediaspecials_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:update" }
+    requirements: { _method: post|put }
+
+mediaspecials_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteBackOfficeBundle:MediaSpecials:delete" }
+    requirements: { _method: post|delete }

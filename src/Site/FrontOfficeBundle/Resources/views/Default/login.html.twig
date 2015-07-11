@@ -1,0 +1,21 @@
+{# empty Twig template #}
+<div id="loginContainer"><a href="#" id="loginButton"><span>Login</span></a>
+                                                    <div id="loginBox">                
+                                                        <form id="loginForm" action="{{ path("fos_user_security_check") }}" method="post">
+                                                                <fieldset id="body">
+                                                                        <fieldset>
+                                                                          <label for="email">Email Address</label>
+                                                                          <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                                                          <input type="text" id="username" name="_username" value="" required="required" />
+                                                                    </fieldset>
+                                                                    <fieldset>
+                                                                            <label for="password">Password</label>
+                                                                            <input type="password" id="password" name="_password" required="required" />
+                                                                     </fieldset>
+                                                                    <input type="submit" id="login"name="_submit" value="{{ 'Sign in'|trans }}" />
+                                                                        <label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
+                                                                </fieldset>
+                                                            <span><a href="#">Forgot your password?</a></span>
+                                                                </form>
+                                                        </div>
+                                                </div>

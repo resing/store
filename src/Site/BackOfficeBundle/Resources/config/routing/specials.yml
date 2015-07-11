@@ -1,0 +1,30 @@
+specials:
+    path:     /
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:index" }
+
+specials_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:show" }
+
+specials_new:
+    path:     /new
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:new" }
+
+specials_create:
+    path:     /create
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:create" }
+    requirements: { _method: post }
+
+specials_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:edit" }
+
+specials_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:update" }
+    requirements: { _method: post|put }
+
+specials_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteBackOfficeBundle:Specials:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,85 @@
+{# empty Twig template #}
+{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
+{% block body %}
+<div class="container">
+<div class="check">	 
+                 <div class="col-md-3 cart-total">
+                 <a class="continue" href="#">Continue to basket</a>
+                 <div class="price-details">
+                    <h3>Price Details</h3>
+                    <span>Total</span>
+                    <span class="total1">{{ somme }}</span>
+                    <span>Discount</span>
+                    <span class="total1">---</span>
+                    {% for product in products %}
+
+                    <span> {{ product.productdescription.name }}</span>
+                    <span class="total1">{{ product.priceTn|pricePromo(product.id) }}</span>
+                    {% endfor %}
+                    <span>Delivery Charges</span>
+                    <span class="total1">150.00</span>
+                    <div class="clearfix"></div>				 
+                 </div>	
+                 <ul class="total_price">
+                   <li class="last_price"> <h4>TOTAL</h4></li>	
+                   <li class="last_price"><span>{% if somme == true %} {{somme + 150.00}} {% else %} --- {% endif %}</span></li>
+                   <div class="clearfix"> </div>
+                 </ul>
+
+
+                 <div class="clearfix"></div>
+                 <a class="order" href="{{ path('site_confirme') }}">Confirmer</a>
+                 <div class="total-item">
+                         <h3>OPTIONS</h3>
+                         <h4>COUPONS</h4>
+                         <a class="cpns" href="#">Apply Coupons</a>
+                         <p><a href="#">Log In</a> to use accounts - linked coupons</p>
+                 </div>
+                </div>
+         <div class="col-md-9 cart-items">
+                 <h1>My Shopping Bag ({{ nombre }})</h1>
+                 {% for product in products %}
+                 <div class="cart-header">
+                     <a href="{{path("site_front_office_deletepanier",{'id': product.id} )}}" ><div class="close1"> </div></a>
+                         <div class="cart-sec simpleCart_shelfItem">
+                                        <div class="cart-item cyc">
+                                                {% for  media in product.media %}
+                                        {% if media.thumbProduct %}
+                                                 <img src="{{ asset('bundles/sitefrontoffice/images/') }}{{media.path}}" class="img-responsive" alt=""/>
+                                         {% endif %}
+                                     {% endfor %}
+                                        </div>
+                                   <div class="cart-item-info">
+                                        <h3><a href="#">{{ product.productdescription.name}}</a></h3>
+                                        <ul class="qty">
+                                                <li><p>Price Unit : {{ product.priceTn|pricePromo(product.id) }}</p></li>
+                                             <form action ="{{ path('site_front_office_modipanier', { 'id' : product.id } ) }}" methode ="get" >
+                                                <li><p>Quantity   :
+
+                                                <select name ="qte" id ="qte" onchange="this.form.submit()">
+                                                    {% for i in 1..6 %}
+                                                        <option value ="{{i}}" {% if panier[product.id] == i %} selected="selected" {%endif %} >{{i}}</option>
+                                                     {% endfor %}
+                                                    </select></p>
+                                                </li>
+                                              </form>
+                                        </ul>
+
+                                                 <div class="delivery">
+                                                 <p>Service Charges : Rs.100.00</p>
+                                                 <span>Delivered in 2-3 bussiness days</span>
+                                                 <div class="clearfix"></div>
+                                </div>	
+                                   </div>
+                                   <div class="clearfix"></div>
+
+                          </div>
+                 </div>
+                 {% endfor %}
+         </div>
+
+
+                <div class="clearfix"> </div>
+ </div>
+	 </div>
+{% endblock %}

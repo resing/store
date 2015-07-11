@@ -1,0 +1,6 @@
+services:
+    site_utilisateurs.registration.form.type:
+        class:  Site\UtilisateursBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: site_utilisateurs_registration }

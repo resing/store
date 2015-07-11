@@ -1,0 +1,14 @@
+{# empty Twig template #}
+{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
+{% block body %}
+<div class="container">
+<div class="main">
+    <div class="registration">
+    {% render url('fos_user_registration_register') %} 
+     {% render url('fos_user_security_login') %} 
+    
+ <div class="clearfix"></div>
+ </div>
+        </div>
+        </div>
+{% endblock %}

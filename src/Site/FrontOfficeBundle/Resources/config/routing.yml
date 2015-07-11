@@ -1,0 +1,43 @@
+site_front_office_homepage:
+    path:     /
+    defaults: { _controller: SiteFrontOfficeBundle:Promo:index }
+
+site_front_office_product:
+    path:     /products/{slug}
+    defaults: { _controller: SiteFrontOfficeBundle:Default:products }
+
+site_front_office_detailproduct:
+    path:     /details/{slug}
+    defaults: { _controller: SiteFrontOfficeBundle:Default:detailproduct }
+
+site_front_office_panier:
+    path:     /checkout
+    defaults: { _controller: SiteFrontOfficeBundle:Default:checkout }
+
+site_front_office_modipanier:
+    path:     /ajouter/{id}
+    defaults: { _controller: SiteFrontOfficeBundle:Default:ajouter }
+
+site_front_office_addpanier:
+    path:     /add/{id}
+    defaults: { _controller: SiteFrontOfficeBundle:Default:add }
+    
+site_front_office_deletepanier:
+    path:     /delete/{id}
+    defaults: { _controller: SiteFrontOfficeBundle:Default:delete }
+ 
+site_front_office_customer:
+    path:     /customer
+    defaults: { _controller: SiteFrontOfficeBundle:Default:customer }
+
+site_confirme:
+    path:     /confirm
+    defaults: { _controller: SiteFrontOfficeBundle:Default:confirmation }
+
+site_confirmeEnd:
+    path:     /confirmTwo
+    defaults: { _controller: SiteFrontOfficeBundle:Default:conftwo }
+
+site_listPromo:
+    path:     /promo/{slug}
+    defaults: { _controller: SiteFrontOfficeBundle:Promo:listpromo }

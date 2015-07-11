@@ -1,0 +1,22 @@
+services:
+#    site_front_office.example:
+#        class: Site\FrontOfficeBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    redirectlistener:
+        class: Site\FrontOfficeBundle\Listener\RedirectListener
+        arguments: ["@service_container", "@session"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
+    refusedlistener:
+        class: Site\FrontOfficeBundle\Listener\RefusedListner
+        arguments: ["@service_container", "@session","@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest}
+    promoProduct:
+        class: Site\FrontOfficeBundle\Services\PromoProduct
+        arguments: ["@doctrine.orm.entity_manager"]
+    pricePromo:
+        class: Site\FrontOfficeBundle\Twig\Extension\PriceSoldeExtension
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: twig.extension }

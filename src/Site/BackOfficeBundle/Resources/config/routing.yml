@@ -1,0 +1,104 @@
+site_back_office_mediaspecials:
+    resource: "@SiteBackOfficeBundle/Resources/config/routing/mediaspecials.yml"
+    prefix:   /mediaspecials
+
+site_back_office_specials:
+    resource: "@SiteBackOfficeBundle/Resources/config/routing/specials.yml"
+    prefix:   /specials
+
+site_back_office_homepage:
+    path:     /test/{name}
+    defaults: { _controller: SiteBackOfficeBundle:Default:index }
+
+admin_products:
+    path:     /{_locale}/admin/products
+    defaults: { _controller: "SiteBackOfficeBundle:Products:index" }
+
+admin_products_show:
+    path:     /{_locale}/admin/products/{id}/show
+    defaults: { _controller: "SiteBackOfficeBundle:Products:show" }
+
+admin_products_new:
+    path:     /{_locale}/admin/products/new
+    defaults: { _controller: "SiteBackOfficeBundle:Products:new" }
+
+admin_products_create:
+    path:     /admin/products/create
+    defaults: { _controller: "SiteBackOfficeBundle:Products:create" }
+    requirements: { _method: post }
+
+admin_products_edit:
+    path:     /admin/products/{id}/edit
+    defaults: { _controller: "SiteBackOfficeBundle:Products:edit" }
+
+admin_products_update:
+    path:     /admin/products/{id}/update
+    defaults: { _controller: "SiteBackOfficeBundle:Products:update" }
+    requirements: { _method: post|put }
+
+admin_products_delete:
+    path:     /admin/products/{id}/delete
+    defaults: { _controller: "SiteBackOfficeBundle:Products:delete" }
+    requirements: { _method: post|delete }
+
+admin_categories:
+    path:     /admin/categories
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:index" }
+
+admin_categories_show:
+    path:     /admin/categories/{id}/show
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:show" }
+
+admin_categories_new:
+    path:     /admin/categories/new
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:new" }
+
+admin_categories_create:
+    path:     /admin/categories/create
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:create" }
+    requirements: { _method: post }
+
+admin_categories_edit:
+    path:     /admin/categories/{id}/edit
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:edit" }
+
+admin_categories_update:
+    path:     /admin/categories/{id}/update
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:update" }
+    requirements: { _method: post|put }
+
+admin_categories_delete:
+    path:     /admin/categories/{id}/delete
+    defaults: { _controller: "SiteBackOfficeBundle:Categories:delete" }
+    requirements: { _method: post|delete }
+
+admin_ProductDescription:
+    path:     /admin/ProductDescription
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:index" }
+
+admin_ProductDescription_show:
+    path:     /admin/ProductDescription/{id}/show
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:show" }
+
+admin_ProductDescription_new:
+    path:     /{_locale}/admin/ProductDescription/new
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:new" }
+
+admin_ProductDescription_create:
+    path:     /admin/ProductDescription/create
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:create" }
+    requirements: { _method: post }
+
+admin_ProductDescription_edit:
+    path:     /admin/ProductDescription/{id}/edit
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:edit" }
+
+admin_ProductDescription_update:
+    path:     /admin/ProductDescription/{id}/update
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:update" }
+    requirements: { _method: post|put }
+
+admin_ProductDescription_delete:
+    path:     /admin/ProductDescription/{id}/delete
+    defaults: { _controller: "SiteBackOfficeBundle:ProductDescription:delete" }
+    requirements: { _method: post|delete }

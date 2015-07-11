@@ -1,0 +1,14 @@
+{# empty Twig template #}
+<div class="cart box_1" id ="raf">
+    <a href="{{path('site_front_office_panier') }}">
+            {% if somme == true %}
+            <h3> <span class="simpleCart_total">${{ somme}}</span> 
+                (<span id="simpleCart_quantity" class="simpleCart_quantity">{{nombre}}</span> items)
+            {% else %}
+                <span id="simpleCart_quantity" class="simpleCart_quantity">(empty card)</span>
+            {% endif %}
+              <img src="{{ asset('bundles/sitefrontoffice/images/bag.png') }}" alt=""></h3>
+    </a>	
+    
+    <div class="clearfix"> </div>
+</div>

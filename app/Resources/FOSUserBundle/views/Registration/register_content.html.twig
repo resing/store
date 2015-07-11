@@ -1,0 +1,73 @@
+{# empty Twig template #}
+{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
+{% block body %}
+<div class="container">
+<div class="main">
+    <div class="registration">
+<div class="registration_left">
+     <h2>new user? <span> create an account </span></h2>
+                 <div class="registration_form">
+                 <!-- Form -->
+<form action="{{ path('fos_registercustomer') }}" {{ form_enctype(form) }} method="POST">
+                    {{ form_row(form._token) }}
+                                <div>
+                                        <label>
+                                            {{ form_errors(form.firstname) }}
+                                            {{ form_widget(form.firstname, { 'attr': {'placeholder': 'first name:'} }) }}
+                                        </label>
+                                </div>
+                                <div>
+                                        <label>
+                                            {{ form_errors(form.lastname) }}
+                                            {{ form_widget(form.lastname, { 'attr': {'placeholder': 'last name:'} }) }}
+                                        </label>
+                                </div>
+                                <div class="sky-form">
+					<div class="sky_form1">
+						<ul>
+
+                                            {{ form_errors(form.sex) }}
+                                            {{ form_widget(form.sex)  }}
+                                </ul>
+					</div>
+				</div>
+                                <div>
+                                        <label>
+                                            {{ form_errors(form.email) }}
+                                            {{ form_widget(form.email, { 'attr': {'placeholder': 'email:'} }) }}
+                                        </label>
+                                </div>
+                                 <div>
+                                        <label>
+                                            {{ form_errors(form.username) }}
+                                            {{ form_widget(form.username  , { 'attr': {'placeholder': 'username:'} }) }}
+                                        </label>
+                                </div>
+                                <div>
+                                        <label>
+                                            {{ form_errors(form.plainPassword.first) }}
+                                            {{ form_row(form.plainPassword.first, { 'attr': {'placeholder': 'password:'} }) }}
+                                        </label>
+                                </div>
+                                <div>
+                                        <label>
+                                            {{ form_errors(form.plainPassword.second) }}
+                                            {{ form_row(form.plainPassword.second , { 'attr': {'placeholder': 're password:'} }) }}
+                                        </label>
+                                </div>
+                                <div>
+                                        <input type="submit" value="create an account" id="register-submit">
+                                </div>
+                                <div class="sky-form">
+                                        <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>i agree to shoppe.com &nbsp;<a class="terms" href="#"> terms of service</a> </label>
+                                </div>
+                        </form>
+                </div>
+     </div>
+     {% render url('fos_logincustomer') %} 
+    
+ <div class="clearfix"></div>
+ </div>
+        </div>
+        </div>
+{% endblock %}

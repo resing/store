@@ -1,0 +1,393 @@
+<?php
+
+namespace Site\BackOfficeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo; // gedmo annotations
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Translatable\Translatable;
+/**
+ * Products
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Site\BackOfficeBundle\Entity\ProductsRepository")
+ */
+class Products
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer")
+     */
+    private $quantity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="priceTn", type="decimal")
+     */
+    private $priceTn;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="priceEur", type="decimal")
+     */
+    private $priceEur;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="status", type="boolean")
+     */
+    private $status;
+/**
+* @ORM\ManyToOne(targetEntity="Site\BackOfficeBundle\Entity\Categories",inversedBy="products")
+* @ORM\JoinColumn(nullable=false)
+*/
+private $category;
+/**
+* @ORM\OneToMany(targetEntity="Site\BackOfficeBundle\Entity\OrdersProducts",cascade={"persist"},mappedBy="product")
+*/
+private $ordersProduct;
+/**
+* @ORM\OneToMany(targetEntity="Site\BackOfficeBundle\Entity\CustomersBasket",cascade={"persist"},mappedBy="product")
+*/
+private $customersBasket;
+
+/**
+ * @Gedmo\Timestampable(on="create")
+ /** @ORM\Column(name="created", type="datetime")
+ */
+private $created;
+/**
+ * @ORM\Column(name="updated", type="datetime")
+ * @Gedmo\Timestampable(on="update")
+ */
+private $updated;
+/**
+* @ORM\OneToMany(targetEntity="Site\BackOfficeBundle\Entity\Media",cascade={"persist"},mappedBy="product")
+*/
+private $media;
+/**
+* @ORM\OneToOne(targetEntity="Site\BackOfficeBundle\Entity\ProductDescription" ,cascade={"persist","remove"})
+* @ORM\JoinColumn(nullable=false,onDelete="CASCADE")
+*/
+private $productDescription;
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return Products
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set priceTn
+     *
+     * @param string $priceTn
+     * @return Products
+     */
+    public function setPriceTn($priceTn)
+    {
+        $this->priceTn = $priceTn;
+
+        return $this;
+    }
+
+    /**
+     * Get priceTn
+     *
+     * @return string 
+     */
+    public function getPriceTn()
+    {
+        return $this->priceTn;
+    }
+
+    /**
+     * Set priceEur
+     *
+     * @param string $priceEur
+     * @return Products
+     */
+    public function setPriceEur($priceEur)
+    {
+        $this->priceEur = $priceEur;
+
+        return $this;
+    }
+
+    /**
+     * Get priceEur
+     *
+     * @return string 
+     */
+    public function getPriceEur()
+    {
+        return $this->priceEur;
+    }
+
+    /**
+     * Set status
+     *
+     * @param boolean $status
+     * @return Products
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return boolean 
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \Site\BackOfficeBundle\Entity\Categories $category
+     * @return Products
+     */
+    public function setCategory(\Site\BackOfficeBundle\Entity\Categories $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Site\BackOfficeBundle\Entity\Categories 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Products
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Products
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+
+    /**
+     * Add media
+     *
+     * @param \Site\BackOfficeBundle\Entity\Media $media
+     * @return Products
+     */
+    public function addMedia(\Site\BackOfficeBundle\Entity\Media $media)
+    {
+        $this->media[] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Remove media
+     *
+     * @param \Site\BackOfficeBundle\Entity\Media $media
+     */
+    public function removeMedia(\Site\BackOfficeBundle\Entity\Media $media)
+    {
+        $this->media->removeElement($media);
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * Set productDescription
+     *
+     * @param \Site\BackOfficeBundle\Entity\ProductDescription $productDescription
+     * @return Products
+     */
+    public function setProductDescription(\Site\BackOfficeBundle\Entity\ProductDescription $productDescription)
+    {
+        $this->productDescription = $productDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get productDescription
+     *
+     * @return \Site\BackOfficeBundle\Entity\ProductDescription 
+     */
+    public function getProductDescription()
+    {
+        return $this->productDescription;
+    }
+
+    /**
+     * Add ordersProduct
+     *
+     * @param \Site\BackOfficeBundle\Entity\OrdersProducts $ordersProduct
+     * @return Products
+     */
+    public function addOrdersProduct(\Site\BackOfficeBundle\Entity\OrdersProducts $ordersProduct)
+    {
+        $this->ordersProduct[] = $ordersProduct;
+
+        return $this;
+    }
+
+    /**
+     * Remove ordersProduct
+     *
+     * @param \Site\BackOfficeBundle\Entity\OrdersProducts $ordersProduct
+     */
+    public function removeOrdersProduct(\Site\BackOfficeBundle\Entity\OrdersProducts $ordersProduct)
+    {
+        $this->ordersProduct->removeElement($ordersProduct);
+    }
+
+    /**
+     * Get ordersProduct
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrdersProduct()
+    {
+        return $this->ordersProduct;
+    }
+
+    /**
+     * Add customersBasket
+     *
+     * @param \Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket
+     * @return Products
+     */
+    public function addCustomersBasket(\Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket)
+    {
+        $this->customersBasket[] = $customersBasket;
+
+        return $this;
+    }
+
+    /**
+     * Remove customersBasket
+     *
+     * @param \Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket
+     */
+    public function removeCustomersBasket(\Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket)
+    {
+        $this->customersBasket->removeElement($customersBasket);
+    }
+
+    /**
+     * Get customersBasket
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCustomersBasket()
+    {
+        return $this->customersBasket;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ordersProduct = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customersBasket = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->media = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+         public function __toString()
+    {
+        return $this->getProductDescription()->getName();
+    }
+
+}
