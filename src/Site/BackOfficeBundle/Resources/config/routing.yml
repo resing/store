@@ -1,3 +1,7 @@
+site_back_office_media:
+    resource: "@SiteBackOfficeBundle/Resources/config/routing/media.yml"
+    prefix:   /media
+
 site_back_office_mediaspecials:
     resource: "@SiteBackOfficeBundle/Resources/config/routing/mediaspecials.yml"
     prefix:   /mediaspecials
@@ -28,11 +32,11 @@ admin_products_create:
     requirements: { _method: post }
 
 admin_products_edit:
-    path:     /admin/products/{id}/edit
+    path:     /{_locale}/admin/products/{id}/edit
     defaults: { _controller: "SiteBackOfficeBundle:Products:edit" }
 
 admin_products_update:
-    path:     /admin/products/{id}/update
+    path:     /{_locale}/admin/products/{id}/update
     defaults: { _controller: "SiteBackOfficeBundle:Products:update" }
     requirements: { _method: post|put }
 

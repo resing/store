@@ -12,7 +12,9 @@ class PromoController extends Controller
     {
         $em    = $this->getDoctrine()->getManager();
         $promos = $em->getRepository('SiteBackOfficeBundle:MediaSpecials')->findBy(array('status' =>1));
-        return $this->render('SiteFrontOfficeBundle:Default:index.html.twig',array('promos' => $promos));
+        $media  = $em->getRepository('SiteBackOfficeBundle:Media')->findOneById('32');
+        
+        return $this->render('SiteFrontOfficeBundle:Default:index.html.twig',array('promos' => $promos,'media' => $media));
     }
     
     public function listpromoAction($slug)

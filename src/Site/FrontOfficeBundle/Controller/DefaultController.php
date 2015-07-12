@@ -21,6 +21,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        echo 'ok';
+        die;
         if ($this->has('security.csrf.token_manager')) {
             $csrfToken = $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue();
         } else {
@@ -29,8 +31,14 @@ class DefaultController extends Controller
                 ? $this->get('form.csrf_provider')->generateCsrfToken('authenticate')
                 : null;
         }
+         $em          = $this->getDoctrine()->getManager();
+         $media  = $em->getRepository('SiteBackOfficeBundle:Media')->findOneById('31');
+         
         $session = $this->getRequest()->getSession();
-        return $this->render('SiteFrontOfficeBundle:Default:index.html.twig', array('csrf_token' =>$csrfToken));
+        
+        var_dump($media.getPath());
+        die;
+        return $this->render('SiteFrontOfficeBundle:Default:index.html.twig', array('csrf_token' =>$csrfToken,'media' => $media));
     }
     public function getParent()
     {

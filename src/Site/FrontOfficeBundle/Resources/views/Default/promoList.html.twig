@@ -161,7 +161,7 @@
                             <div class="content_box"><a href="{{path ('site_front_office_detailproduct',{'slug' : special.product.productdescription.slug } ) }}">
                                      {% for  media in special.product.media %}
                                         {% if media.thumbProduct %}
-                                         <img alt="" class="img-responsive" src="{{ asset('bundles/sitefrontoffice/images/') }}{{media.path}}">
+                                         <img alt="" class="img-responsive" src="{{ media.path | imagine_filter('productThumb') }}">
                                          {% endif %}
                                      {% endfor %}
                                       </a>

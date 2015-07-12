@@ -132,7 +132,7 @@ class ProductsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('SiteBackOfficeBundle:Products')->find($id);
-        $entity->setTranslatableLocale($this->getRequest()->getLocale());
+        
         $em->refresh($entity);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Products entity.');

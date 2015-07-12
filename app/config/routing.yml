@@ -9,3 +9,6 @@ site_back_office:
 site_front_office:
     resource: "@SiteFrontOfficeBundle/Resources/config/routing.yml"
     prefix:   /
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
