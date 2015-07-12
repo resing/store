@@ -52,7 +52,7 @@ class LoadMediaData extends AbstractFixture implements  ContainerAwareInterface,
         $Media6->setName("Foutas2");
         $Media6->setCreated(new \DateTime('now '));
         $Media6->setUpdated(new \DateTime('now '));
-        $Media6->setPath("91.jpg");
+        $Media6->setPath("7.jpg");
         $Media6->setThumbProduct('1');
         $Media6->setProduct($this->getReference("produit2"));
 

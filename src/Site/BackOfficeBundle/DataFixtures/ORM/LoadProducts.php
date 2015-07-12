@@ -38,7 +38,7 @@ class LoadProductsData extends AbstractFixture implements  ContainerAwareInterfa
         $produit1->setCategory($this->getReference("category3"));
         $produit1->setCreated(new \DateTime('now '));
         $produit1->setPriceEur("60");
-        $produit1->setPriceTn("2");
+        $produit1->setPriceTn("20");
         $produit1->setQuantity("4");
         $produit1->setStatus(true);
         $produit1->setUpdated(new \DateTime('now '));
