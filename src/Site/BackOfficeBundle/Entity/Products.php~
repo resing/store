@@ -375,4 +375,19 @@ private $productDescription;
     {
         return $this->customersBasket;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->ordersProduct = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->customersBasket = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->media = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+         public function __toString()
+    {
+        return $this->getProductDescription()->getName();
+    }
+
 }

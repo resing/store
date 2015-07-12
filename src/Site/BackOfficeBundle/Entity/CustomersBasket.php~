@@ -151,4 +151,27 @@ private $created;
     {
         return $this->user;
     }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return CustomersBasket
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 }

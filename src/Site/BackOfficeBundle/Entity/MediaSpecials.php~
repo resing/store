@@ -305,4 +305,9 @@ private $updated;
     {
         return $this->specials;
     }
+    
+         public function __toString()
+    {
+        return $this->name;
+    }
 }

@@ -17,7 +17,6 @@ class SpecialsController extends Controller
 
     /**
      * Lists all Specials entities.
-     *
      */
     public function indexAction()
     {

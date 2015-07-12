@@ -4,7 +4,7 @@ site_back_office_mediaspecials:
 
 site_back_office_specials:
     resource: "@SiteBackOfficeBundle/Resources/config/routing/specials.yml"
-    prefix:   /specials
+    prefix:   /admin/specials
 
 site_back_office_homepage:
     path:     /test/{name}

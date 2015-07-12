@@ -76,7 +76,7 @@ private $product;
      * @param \Site\UtilisateursBundle\Entity\Orders $order
      * @return OrdersProducts
      */
-    public function setOrder(\Site\UtilisateursBundle\Entity\Orders $order)
+    public function setOrder(\Site\BackOfficeBundle\Entity\Orders $order)
     {
         $this->order = $order;
 
@@ -91,5 +91,28 @@ private $product;
     public function getOrder()
     {
         return $this->order;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \Site\BackOfficeBundle\Entity\Products $product
+     * @return OrdersProducts
+     */
+    public function setProduct(\Site\BackOfficeBundle\Entity\Products $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Site\BackOfficeBundle\Entity\Products 
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }

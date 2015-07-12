@@ -237,4 +237,8 @@ private $updated;
     {
         return $this->updated;
     }
+    
+     public function __toString() {
+        return $this->getMediaspecial();
+    }
 }

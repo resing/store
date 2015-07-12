@@ -5,6 +5,8 @@ namespace Site\BackOfficeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo; // gedmo annotations
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Translatable\Translatable;
+
 /**
  * ProductDescription
  *
@@ -24,14 +26,14 @@ class ProductDescription
 
     /**
      * @var string
-     *
+     * @Gedmo\Translatable
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
-     *
+     * @Gedmo\Translatable
      * @ORM\Column(name="description", type="text")
      */
     private $description;
@@ -66,11 +68,6 @@ private $updated;
 * @ORM\Column(length=128, unique=true)
 */
 private $slug;
-/**
-* @ORM\OneToOne(targetEntity="Site\BackOfficeBundle\Entity\Products" ,inversedBy="product")
-* @ORM\JoinColumn(nullable=false)
-*/
-private $product;
     /**
      * Get id
      *
@@ -241,5 +238,4 @@ private $product;
     {
         return $this->slug;
     }
-
 }

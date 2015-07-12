@@ -163,4 +163,37 @@ private $customersBasket;
     {
         return $this->order;
     }
+
+    /**
+     * Add customersBasket
+     *
+     * @param \Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket
+     * @return User
+     */
+    public function addCustomersBasket(\Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket)
+    {
+        $this->customersBasket[] = $customersBasket;
+
+        return $this;
+    }
+
+    /**
+     * Remove customersBasket
+     *
+     * @param \Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket
+     */
+    public function removeCustomersBasket(\Site\BackOfficeBundle\Entity\CustomersBasket $customersBasket)
+    {
+        $this->customersBasket->removeElement($customersBasket);
+    }
+
+    /**
+     * Get customersBasket
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCustomersBasket()
+    {
+        return $this->customersBasket;
+    }
 }
