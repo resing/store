@@ -1,5 +1,0 @@
-55a7f7,127.0.0.1,GET,http://127.0.0.1/ecommerce/web/app_dev.php/register/,1436658578,
-6f8d4d,127.0.0.1,GET,http://127.0.0.1/ecommerce/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSiteFrontOfficeBundle%253ADefault%253Alogin,1436658577,55a7f7
-422bf2,127.0.0.1,GET,http://127.0.0.1/ecommerce/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSiteFrontOfficeBundle%253ADefault%253Acaddie,1436658577,55a7f7
-9383be,127.0.0.1,GET,http://127.0.0.1/ecommerce/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DSiteFrontOfficeBundle%253ADefault%253AMenu,1436658578,55a7f7
-e1c168,127.0.0.1,GET,http://127.0.0.1/ecommerce/web/app_dev.php/customerlogin,1436658578,55a7f7
