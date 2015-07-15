@@ -15,7 +15,7 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
             $builder
-            ->add('file' , 'file',array('required'=> false))
+            ->add('file' , 'file',array('required'=> true))
             ->add('Name')
             ->add('product')
             ->add('thumbProduct')
@@ -37,6 +37,6 @@ class MediaType extends AbstractType
      */
     public function getName()
     {
-        return 'site_backofficebundle_media';
+        return '';
     }
 }

@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Site\BackOfficeBundle\Entity\Media;
 use Site\BackOfficeBundle\Form\MediaType;
-
+use Symfony\Component\Form\FormError;
 /**
  * Media controller.
  *
@@ -38,15 +38,21 @@ class MediaController extends Controller
         $entity = new Media();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        $productId = $request->request->get('product');
+        $thumbProduct = $request->request->get('thumbProduct');
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('SiteBackOfficeBundle:Media')->findBy(array('product' =>$productId,'thumbProduct' =>$thumbProduct ));
+        if($entities) {
+            $form->addError(new FormError('error messageVotre prduit à déjà un thumbs'));
+        } else {
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($entity);
+                $em->flush();
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('media_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('media_show', array('id' => $entity->getId())));
+            }
         }
-
         return $this->render('SiteBackOfficeBundle:Media:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
