@@ -20,10 +20,9 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 class SecurityController extends Controller
 {
     public function loginAction(Request $request)
-    {
+    {       
         /** @var $session \Symfony\Component\HttpFoundation\Session\Session */
         $session = $request->getSession();
-
         if (class_exists('\Symfony\Component\Security\Core\Security')) {
             $authErrorKey = Security::AUTHENTICATION_ERROR;
             $lastUsernameKey = Security::LAST_USERNAME;
@@ -32,9 +31,9 @@ class SecurityController extends Controller
             $authErrorKey = SecurityContextInterface::AUTHENTICATION_ERROR;
             $lastUsernameKey = SecurityContextInterface::LAST_USERNAME;
         }
-
         // get the error if any (works with forward and redirect -- see below)
         if ($request->attributes->has($authErrorKey)) {
+            
             $error = $request->attributes->get($authErrorKey);
         } elseif (null !== $session && $session->has($authErrorKey)) {
             $error = $session->get($authErrorKey);
@@ -63,6 +62,8 @@ class SecurityController extends Controller
             'error' => $error,
             'csrf_token' => $csrfToken,
         ));
+        
+        
     }
 
     /**

@@ -1,13 +1,20 @@
+{# empty Twig template #}
+{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
+{% block body %}
+<div class="container">
+<div class="main">
+    <div class="registration">
+<div class="registration_left">
 
-        <!-- start registration -->
+    {% render url('fos_user_registration_register') %} 
 
-{% render url('fos_registercustomer') %} 
 
-                
-        
+      </div>  
         <div class="registration_left">
                 <h2>existing user</h2>
                 {% block fos_user_content %}
+                    
+
                 {% if error %}
                     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                 {% endif %}
@@ -39,3 +46,6 @@
         </div>
         <div class="clearfix"></div>
 
+</div>
+        </div>
+{% endblock %}

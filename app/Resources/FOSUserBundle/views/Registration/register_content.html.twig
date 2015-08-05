@@ -1,10 +1,5 @@
-{# empty Twig template #}
-{% extends "SiteFrontOfficeBundle::layout.html.twig" %}
-{% block body %}
-<div class="container">
-<div class="main">
-    <div class="registration">
-<div class="registration_left">
+ {% block body %}
+
      <h2>new user? <span> create an account </span></h2>
                  <div class="registration_form">
                  <!-- Form -->
@@ -63,11 +58,6 @@
                                 </div>
                         </form>
                 </div>
-     </div>
-     {% render url('fos_logincustomer') %} 
     
- <div class="clearfix"></div>
- </div>
-        </div>
-        </div>
+
 {% endblock %}
