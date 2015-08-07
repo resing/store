@@ -1,6 +1,2 @@
 {# empty Twig template #}
-    <li class="active grid"><a class="color1" href="index.html">Home</a></li>
-{% for  key,category in categories %}
-    <li  ><a class="color{{key+1}}" href="{{path('site_front_office_product' ,{ 'slug' : category.slug })}}" >{{category.name}}</a> </li>
-
-{% endfor %}
+{{ knp_menu_render('main', { 'rootClass': 'foo' ,'currentClass': 'active','template': 'SiteFrontOfficeBundle:Default:knp_menu_personnalise.html.twig'}) }}

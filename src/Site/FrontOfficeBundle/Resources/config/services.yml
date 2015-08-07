@@ -20,3 +20,13 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
         tags:
             - { name: twig.extension }
+    site_main.menu_builder:
+        class:     Site\FrontOfficeBundle\Menu\Builder
+        arguments: ['@knp_menu.factory', '@doctrine.orm.entity_manager']
+
+    site_main.menu.main:
+        class:           Knp\Menu\MenuItem
+        factory_service: site_main.menu_builder
+        factory_method:  createMainMenu
+        tags:
+            - { name: knp_menu.menu, alias: main }

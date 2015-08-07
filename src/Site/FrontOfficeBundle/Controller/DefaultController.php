@@ -21,8 +21,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        echo 'ok';
-        die;
+        
         if ($this->has('security.csrf.token_manager')) {
             $csrfToken = $this->get('security.csrf.token_manager')->getToken('authenticate')->getValue();
         } else {
