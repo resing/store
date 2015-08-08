@@ -49,8 +49,8 @@ $('#test').click(function(){
                                                 <ul id="etalage">
                                                    {% for Media in product.Media %}
                         <li>
-                            <img class="etalage_thumb_image" src="{{ asset('bundles/sitefrontoffice/images/') }}{{Media.path}}" class="img-responsive" />
-                            <img class="etalage_source_image" src="{{ asset('bundles/sitefrontoffice/images/') }}{{Media.path}}" class="img-responsive" title="" />
+                            <img class="etalage_thumb_image" src="{{ Media.AssetPath | imagine_filter('product') }}" class="img-responsive" />
+                            <img class="etalage_source_image" src="{{ Media.AssetPath | imagine_filter('product') }}" class="img-responsive" title="" />
                         </li>
                     {% endfor %}
                                                 </ul>
@@ -78,6 +78,19 @@ $('#test').click(function(){
 					 <option value ="{{i}}" >{{i}}</option>
 					 {% endfor %}
 				   </select>
+                                   <div class="det_nav1">
+						<h4>Select a size :</h4>
+							<div class=" sky-form col col-4">
+								<ul>
+									<li><label class="checkbox"><input name="checkbox" type="checkbox"><i></i>L</label></li>
+									<li><label class="checkbox"><input name="checkbox" type="checkbox"><i></i>S</label></li>
+									<li><label class="checkbox"><input name="checkbox" type="checkbox"><i></i>M</label></li>
+									<li><label class="checkbox"><input name="checkbox" type="checkbox"><i></i>XL</label></li>
+								</ul>
+							</div>
+					</div>
+                                    
+					
                                         <div class="btn_form">
                                                 <a href="#" id="test">buy</a>
                                         </div>

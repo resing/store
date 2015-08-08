@@ -45,7 +45,7 @@
                                         <div class="cart-item cyc">
                                                 {% for  media in product.media %}
                                         {% if media.thumbProduct %}
-                                                 <img src="{{ asset('bundles/sitefrontoffice/images/') }}{{media.path}}" class="img-responsive" alt=""/>
+                                                 <img src="{{ media.AssetPath | imagine_filter('product') }}" class="img-responsive" alt=""/>
                                          {% endif %}
                                      {% endfor %}
                                         </div>

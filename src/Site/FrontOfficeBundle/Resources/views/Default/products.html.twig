@@ -1,37 +1,5 @@
 {# empty Twig template #}
 {% extends "SiteFrontOfficeBundle::layout.html.twig" %}
-{% block JavaModla %}
-
-<script>
-    
-        jQuery(document).ready(function($){
-        $('#list a').click(function(){
-        var ref = jQuery(this).attr('href');
-       var url = "{{path ('site_front_office_addpanier',{'id' :'text' } ) }}";
-       url = url.replace("text", ref);
-           $.ajax({
-               type: "GET",
-               dataType: "json",
-               url:  url,
-               cache:true,
-               data : "qte=1",
-               context: document.body,
-               success: function( data )
-               {
-                   console.log(data);
-                   $('#raf').html('<a href="{{path("site_front_office_panier") }}"><h3> <span class="simpleCart_total">$'+data.somme+'</span> \n\
-           (<span id="simpleCart_quantity" class="simpleCart_quantity">'+data.nombre+'</span> items)<img src="{{ asset("bundles/sitefrontoffice/images/bag.png") }}" alt=""></h3></a>');
-               }
-               
-               
-           });
-           return false;
-        });
-         
-       });
-</script>
- {% endblock %}
-
 {% block body %}
 <div class="container">
     <div class="women_main">
@@ -168,7 +136,7 @@
                                      <div class="grid_1 simpleCart_shelfItem">
                                     <p>It is a long established fact that</p>
                                      <div class="item_add"><span class="item_price"><h6>ONLY {{ product.priceTn }}</h6></span></div>
-                                    <div class="item_add"><span class="item_price" id="list"><a href ="{{product.id }}" id="test" >add to cart</a></span></div>
+                                    <div class="item_add"><span class="item_price" id="list"><a href ="{{path ('site_front_office_detailproduct',{'slug' : product.productdescription.slug } ) }}" id="test" >See More</a></span></div>
                                      </div>
                             </div>
                     </div>
